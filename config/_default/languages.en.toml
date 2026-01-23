@@ -20,7 +20,7 @@ title = "How do you cloud?"
   image = "https://avatars.githubusercontent.com/u/105357226?v=4"
   imageQuality = 96
   headline = "Cloud Infrastructure Architect focusing on Microsoft Azure"
-  bio = "A little bit about you"
+#  bio = "A little bit about you"
   links = [
 #     { email = "mailto:hello@your_domain.com" },
 #     { link = "https://link-to-some-website.com/" },
