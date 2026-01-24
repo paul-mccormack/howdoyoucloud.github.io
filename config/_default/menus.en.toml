@@ -30,32 +30,31 @@
  pageRef = "tags"
  weight = 50
 
-[[main]]
- name = "Hugo and Blowfish Info"
- weight = 40
+# [[main]]
+#  name = "Hugo and Blowfish Info"
+#  weight = 40
 
-[[main]]
- name = "Hugo"
- parent = "Hugo and Blowfish Info"
- pageRef = "hugo"
- weight = 40
+# [[main]]
+#  name = "Hugo"
+#  parent = "Hugo and Blowfish Info"
+#  pageRef = "hugo"
+#  weight = 40
 
-[[main]]
- name = "Blowfish"
- parent = "Hugo and Blowfish Info"
- pageRef = "blowfish"
- weight = 40
+# [[main]]
+#  name = "Blowfish"
+#  parent = "Hugo and Blowfish Info"
+#  pageRef = "blowfish"
+#  weight = 40
 
-# [[subnavigation]]
-#  name = "An interesting topic"
-#  pageRef = "tags/interesting-topic"
-#  weight = 10
+[[subnavigation]]
+ name = "Hugo Cheatsheet"
+ pageRef = "hugo-and-blowfish/hugo/index"
+ weight = 10
 
-# [[subnavigation]]
-#  name = "My Awesome Category"
-#  pre = "github"
-#  pageRef = "categories/awesome"
-#  weight = 20
+[[subnavigation]]
+ name = "Blowfish Cheatsheet"
+ pageRef = "hugo-and-blowfish/blowfish/index"
+ weight = 20
 
 # -- Footer Menu --
 # The footer menu is displayed at the bottom of the page, just before

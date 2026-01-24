@@ -2,6 +2,7 @@
 title: "Deploy Changed Bicep Templates with GitHub Actions"
 date: 2026-01-23
 draft: false
+tags: ["bicep", "github actions", "azure", "CI/CD"]
 ---
 
 [![Deploy](https://github.com/paul-mccormack/deploy-changed-bicep-templates/actions/workflows/deploy.yml/badge.svg)](https://github.com/paul-mccormack/deploy-changed-bicep-templates/actions/workflows/deploy.yml)
