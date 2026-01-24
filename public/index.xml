@@ -19,5 +19,35 @@
       
     </item>
     
+    <item>
+      <title>Blowfish Info, tips and tricks</title>
+      <link>http://localhost:1313/hugoandblowfish/blowfish/</link>
+      <pubDate>Fri, 23 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/hugoandblowfish/blowfish/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Deploy Changed Bicep Templates with GitHub Actions</title>
+      <link>http://localhost:1313/posts/deploychangedbiceptemplateghactions/</link>
+      <pubDate>Fri, 23 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/deploychangedbiceptemplateghactions/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Hugo Info, tips and tricks</title>
+      <link>http://localhost:1313/hugoandblowfish/hugo/</link>
+      <pubDate>Fri, 23 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/hugoandblowfish/hugo/</guid>
+      <description></description>
+      
+    </item>
+    
   </channel>
 </rss>

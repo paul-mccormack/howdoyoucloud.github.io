@@ -28,23 +28,23 @@
 [[main]]
  name = "Tags"
  pageRef = "tags"
+ weight = 50
+
+[[main]]
+ name = "Hugo and Blowfish Info"
  weight = 40
 
-# [[main]]
-#  name = "Parent"
-#  weight = 30
+[[main]]
+ name = "Hugo"
+ parent = "Hugo and Blowfish Info"
+ pageRef = "hugo"
+ weight = 40
 
-# [[main]]
-#  name = "example sub-menu 1"
-#  parent = "Parent"
-#  pageRef = "posts"
-#  weight = 30
-
-# [[main]]
-#  name = "example sub-menu 2"
-#  parent = "Parent"
-#  pageRef = "posts"
-#  weight = 30
+[[main]]
+ name = "Blowfish"
+ parent = "Hugo and Blowfish Info"
+ pageRef = "blowfish"
+ weight = 40
 
 # [[subnavigation]]
 #  name = "An interesting topic"
