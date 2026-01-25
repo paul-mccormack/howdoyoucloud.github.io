@@ -27,3 +27,35 @@ Blowfish expects this to be an array so if you only want section then still use 
 ```toml
 mainSections = ["posts"]
 ```
+
+## Inserting images into pages
+
+You can use standard markdown syntax to insert images into your pages.  For example:
+
+```md
+![Manchester](the-famous-manchester.jpg)
+```
+
+This will load the image file `the-famous-manchester.jpg` from the same folder as your markdown file.
+
+![Manchester](the-famous-manchester.jpg)
+
+> [!NOTE]
+> The image file will only be available to this page as it is in the same folder as the markdown file.  If you want to use the same image on multiple pages then > it is better to store it in the `assets` folder and reference it from there.
+
+You can also shrink the rendered image by adding custom attributes to the rendered HTML.  For example:
+
+```md
+![Shrunk Manchester](the-famous-manchester.jpg)
+{style="width:50%;"}
+```
+
+![Shrunk Manchester](the-famous-manchester.jpg)
+{style="width:50%;"}
+
+You can also use the [figure](https://blowfish.page/docs/shortcodes/#figure) shortcode.
+
+It works with animated images also!
+
+![The Rocinante](the_roci.gif)
+

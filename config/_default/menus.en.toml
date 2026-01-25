@@ -30,22 +30,6 @@
  pageRef = "tags"
  weight = 50
 
-# [[main]]
-#  name = "Hugo and Blowfish Info"
-#  weight = 40
-
-# [[main]]
-#  name = "Hugo"
-#  parent = "Hugo and Blowfish Info"
-#  pageRef = "hugo"
-#  weight = 40
-
-# [[main]]
-#  name = "Blowfish"
-#  parent = "Hugo and Blowfish Info"
-#  pageRef = "blowfish"
-#  weight = 40
-
 [[subnavigation]]
  name = "Hugo Cheatsheet"
  pageRef = "hugo-and-blowfish/hugo/index"
