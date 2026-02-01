@@ -7,9 +7,7 @@ showHero: true
 heroStyle: "background"
 ---
 
-[![Deploy](https://github.com/paul-mccormack/deploy-changed-bicep-templates/actions/workflows/deploy.yml/badge.svg)](https://github.com/paul-mccormack/deploy-changed-bicep-templates/actions/workflows/deploy.yml)
-
-# Introduction 
+## Introduction 
 This project is to develop a method for checking if Bicep templates in the repo have changed on the latest commit.  If they have add them to the deployment.  If they haven't skip them.  The ultimate goal is to reduce the run time for a deployment on a project that contains multiple sets of templates and parameter files that are unlikley to be changed and redeployed together after the initial deployment.
 
 ## The problem I'm trying to solve
@@ -62,7 +60,7 @@ The pipeline config file is [deploy.yml](https://github.com/paul-mccormack/deplo
 
 For the first test I want to get both resources deployed.  This proves the pipeline will be able to detect changes to multiple templates or parameter files and act accordingly.  Creating a change in both parameter files and pushing that to the main branch results in the pipeline running, from the logs we can see the results are exactly as we expect.  Both the storage account and the vnet have been picked up as changed and are being deployed.
 
-```
+```bash
 Checking for changed Bicep and parameter files in the last commit...
 The following Bicep or parameter files have changed in the last commit:
 
@@ -84,7 +82,7 @@ VERBOSE: 16:20:32 - Resource Microsoft.Network/virtualNetworks/subnets 'vnet-pmc
 
 For the second test I need to make a change to one of the resources and ensure the deployment only picks that template to run.  To do that I will disable public network access on the storage account and commit the change to the repo.  Again from the logs this is working as expected.  Only the storage account parameter files was picked up and deployed.
 
-```
+```bash
 Checking for changed Bicep and parameter files in the last commit...
 The following Bicep or parameter files have changed in the last commit:
 stg.bicepparam
@@ -97,7 +95,7 @@ VERBOSE: 16:50:03 - Resource Microsoft.Storage/storageAccounts 'stguumu27r4tuhry
 
 The final test is to make a commit that doesn't include the bicep templates or parameter files.  Again from the logs it performed exactly as required.  No Bicep deployments were made.
 
-```
+```bash
 Checking for changed Bicep and parameter files in the last commit...
 No Bicep or parameter files have been changed in the last commit.
 Script execution Complete

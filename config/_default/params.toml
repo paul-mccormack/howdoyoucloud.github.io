@@ -12,7 +12,7 @@ autoSwitchAppearance = true
 enableA11y = false
 enableSearch = true
 enableCodeCopy = false
-enableStructuredBreadcrumbs = false
+enableStructuredBreadcrumbs = true
 # enableStyledScrollbar = true # disable to use native scrollbar style (defaults to true)
 
 replyByEmail = false
