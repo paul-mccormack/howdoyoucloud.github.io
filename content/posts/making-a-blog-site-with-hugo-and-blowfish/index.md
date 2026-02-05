@@ -1,28 +1,28 @@
 ---
 title: "Making a GitHub Pages hosted blog site with Hugo and Blowfish"
 date: 2026-01-27
-draft: true
+draft: false
 tags: ["Hugo", "Blowfish"]
 ---
 
 ## Introduction
 
-In this post I'm going to detail the steps I followed to create this blog site using Hugo using the very flexible Blowfish theme. By the end of this guide, you will have a fully functional blog site that is easy to maintain and customize.
+In this post I'm going to detail the steps I followed to create this blog site using Hugo combined with the very flexible Blowfish theme. By the end of this guide, you will have a fully functional blog site that is easy to maintain and customize.
 
 I spent a bit of time looking at different static site generators, but Hugo stood out due to its speed, ease of use, and extensive documentation. The Blowfish theme caught my eye because of its design and flexibility and like Hugo, it has great documentation!
 
-Before we go further here are the links to both [Hugo](https://gohugo.io/) and the [Blowfish](https://blowfish.page/) theme.  You can find the full documenatation for both sites at those links.
+Before we go further here are the links to both [Hugo](https://gohugo.io/) and the [Blowfish](https://blowfish.page/) theme. You can find the full documenatation for both sites at those links.
 
 ## Prerequisites
 
-You will need to download and install some tools before you can get started.  This guide is not intended to be the definitive set of instructions for this step. It will depend on your operating system, how you want to install the theme and how you will be hosting the site.  I'm on Windows and I'm using GitHub to host the repository and GitHub Pages to host the site.  Both the Hugo and Blowfish docs are excellent and will guide you through the installation steps for your specific environment.
+You will need to download and install some tools before you get started. This guide is not intended to be the definitive set of instructions for this step. It will depend on your operating system, how you want to install the theme and how you will be hosting the site. I'm on Windows and I'm using GitHub to host the repository and GitHub Pages to host the site.  Both the Hugo and Blowfish docs are excellent and will guide you through the installation steps for your specific environment.
 
 > [!NOTE]
 > The Hugo docs say to use Powershell rather than Windows Powershell. I tend to use Powershell all the time so can't say if you will run into problems using Windows PowerShell or not. Probably best to follow the docs on this one. 
 
 ### Create a GitHub Account
 
-If you don't already have a GitHub account you will need to create one.  You can do this by going to [GitHub](https://github.com/) and signing up for a free account.
+If you don't already have a GitHub account you will need to create one. You can do this by going to [GitHub](https://github.com/) and signing up for a free account.
 
 ### Install Hugo
 
@@ -40,13 +40,13 @@ hugo version
 
 ### Install Git
 
-While Git isn't strictly required to create a Hugo site it is very useful for managing your site files and installing themes like Blowfish.  It can also be intalled using Winget.
+While Git isn't strictly required to create a Hugo site it is very useful for managing your site files and installing themes like Blowfish. It can also be installed using Winget.
 
 ```powershell
 winget install --id Git.Git -e --source winget
 ```
 
-You will need to setup Git with your GitHub account.  The following links shows how to do this:<br>
+You will need to set-up Git with your GitHub account. The following links shows how to do this:<br>
 [Setting your Git username](https://docs.github.com/en/get-started/git-basics/setting-your-username-in-git#setting-your-git-username-for-every-repository-on-your-computer)<br>
 [Setting your commit email address](https://docs.github.com/en/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address#setting-your-commit-email-address-in-git)
 
@@ -57,17 +57,18 @@ You can also use a custom domain name if you have one. I'll cover that at the en
 
 ## Creating a new Hugo site
 
-Now that you have all the prerequisites installed you can create a new Hugo site.  Open a terminal window and navigate to the folder where you want to create your site.  The Hugo CLI will create a folder named the same as your new site. Run the following command to create a new Hugo site, replace `mynewsite` with the name you want to use for your site:
+Now that all the prerequisites are installed we are ready to createa new Hugo site.<br>
+Open a terminal window and navigate to the folder where you want to create your site. The Hugo CLI will create an empty folder to hold the site files. Run the following command to create a new Hugo site, replace `mynewsite` with the name you want to use for your site:
 
 ```powershell
 hugo new site mynewsite
 ```
-Next navigate into the new site folder:
+Navigate into the new site folder:
 
 ```powershell
 cd mynewsite
 ```
-You should now see a basic folder structure for your Hugo site.  It should look something like this:
+You should now see a basic folder structure for your Hugo site. It will look something like this:
 
 ```
 mynewsite
@@ -102,13 +103,13 @@ These two folders are generated by Hugo when you build your site and don't need 
 
 ### Installing the Blowfish theme
 
-You can install the Blowfish theme by cloning the repository into the themes folder of your Hugo site. Run the following command:
+You can install Blowfish by cloning the repository into the themes folder of your Hugo site. Run the following command:
 
 ```powershell
 git submodule add -b main https://github.com/nunocoracao/blowfish.git themes/blowfish
 ```
 > [!NOTE]
-> This is one way to install the Blowfish theme. There are others including a a CLI tool you can use to initialize a new Hugo site with the Blowfish theme already installed. See the [Blowfish documentation](https://blowfish.page/docs/installation/) for more details.
+> This is one way to install Blowfish. There are others including a CLI tool, which will initialize a new Hugo site with the Blowfish theme already installed. See the [Blowfish documentation](https://blowfish.page/docs/installation/) for more details.
 
 ### Connecting your project to GitHub
 
@@ -129,11 +130,13 @@ git push -u origin main
 
 ## Configuring the Blowfish theme
 
-From here in you will find it easier to do this in your code editor. I'm using Visual Studio Code.  Open the project folder in your code editor.<br>
+From here in you will find it easier to work in your code editor. I'm using Visual Studio Code. Open the project folder in your editor.<br>
 
 ### Configure Hugo to use the Blowfish theme
 
-In the root of your project folder you will find a file named `hugo.toml`. Delete this file.  Navigate to the `themes/blowfish/` folder and copy the folder called `config`.  Paste this folder into the root of your project folder. Inside the `config` folder you will find a folder named `_default` which contains all the toml configuration files for the theme:
+In the root of your project folder you will find a file named `hugo.toml`. Delete this file.<br><br>
+Navigate to the `themes/blowfish/` folder and copy the folder called `config`. Paste this folder into the root of your project folder.<br><br>
+Inside the `config` folder you will find a folder named `_default` which contains all the toml configuration files for the theme:
 ```powershell
 config
 └── _default
@@ -144,7 +147,8 @@ config
     ├── module.toml
     └── params.toml
 ```
-These files contain all the Blowfish configuration options which you can use to customise your site.  I'm not going to go through an exhaustive explanation of every option as there a lot of them. I'm just highlighting the steps I took to get my site how I wanted it. You can find the full documentation [here](https://blowfish.page/docs/configuration/).
+These files contain all the Blowfish configuration options which you can use to customise your site.<br><br>
+I'm not going to go through an exhaustive explanation of every option as there a lot of them. I'm just highlighting the steps I took to get this site how I wanted it. You can find the full documentation [here](https://blowfish.page/docs/configuration/).
 
 ### Configure hugo.toml
 
@@ -186,7 +190,8 @@ If you want to include links to your social profiles uncomment the relevant line
 ```
 ### Configure menus.en.toml
 
-This file allows you to configure the menu for your site. In it's simplest form the menu is built by using a `name` and `pageRef` for each menu item. They will be displayed alphabetically but you can control the order by adding a `weight` option.  The example below shows a simple menu with a home link, a posts link and an about me link.
+This file allows you to configure the menu for your site.<br><br>In it's simplest form the menu is built using a `name` and `pageRef` pair for each menu item. They will be displayed alphabetically but you can control the order by adding a `weight` option.<br><br>
+The example below shows a simple menu with a home link, a posts link and an about me link.
 
 ```toml
 [[main]]
@@ -200,22 +205,30 @@ This file allows you to configure the menu for your site. In it's simplest form 
   weight = 2
 
 [[main]]
+  name = "Projects"
+  pageRef = "projects"
+  weight = 3
+
+[[main]]
   name = "About Me"
   pageRef = "about"
-  weight = 3
+  weight = 4
 ```
-Home uses the index pageRef, this will take you to the home page of your site. Posts links to a section called posts.<br>
+Home uses the index pageRef, this will take you to the home page of your site.<br><br>
+Posts links to a section called posts.<br><br>
+Projects links to a section called projects.<br><br>
 The About Me pageref links to a page called `about.md`. You don't need to provide the file extension.<br>
 
 Your menu structure should reflect the structure of your content folder. I'll go into detail on that later in the guide.
 
 ### Configure params.toml
 
-This config file holds the options to configure the look and feel of your site.  Blowfish is hugely flexible with way too many options to cover here but I'll call out a few of the key settings I changed to get this site looking how I wanted it.  You can the full docs [here](https://blowfish.page/docs/configuration/#theme-parameters).
+This config file holds the options to configure the look and feel of your site. Blowfish is hugely flexible with way too many options to cover here but I'll call out a few of the key settings I changed to get this site looking how I wanted it. You can view the full docs [here](https://blowfish.page/docs/configuration/#theme-parameters).
 
 #### Colour Scheme
 
-Tjhe first section is where you can set the colour scheme.  Blowfish has a range of built in schemes which all look great. You can choose a default appearance of dark or light modes and enable automatic switching based on the user's system preferences.
+The first section is where you set the colour scheme. Blowfish has a range of built in schemes which all look great.<br><br>
+You can choose a default appearance of dark or light modes and enable automatic switching based on the user's system preferences.
 
 ```toml
 colorScheme = "blowfish"
@@ -225,7 +238,9 @@ autoSwitchAppearance = true
 
 #### Recent posts
 
-Blowfish allows you to show recent posts on the home page.  You might have a section of your site you want to exclude from this list.  You can control this with the `mainSections` setting.  For example you might have a posts section and a projects section but only want content from posts to appear in this list.  Uncomment this setting and update it to match what you want to show.
+Blowfish can highlight recent posts on the home page.<br><br>
+You might have a section of your site you want to exclude from this list. You can control this with the `mainSections` setting.<br><br>
+For example you might have a posts section and a projects section but only want content from posts to appear in this list. Uncomment this setting and update it to match what you want to show.
 
 ```toml
 mainSections = ["posts"]
@@ -233,28 +248,32 @@ mainSections = ["posts"]
 
 #### Table of Contents
 
-These next three settings make your articles look amazing! Slightly jumping ahead here.  Your articles are written in Markdown.  You can use markdown headings to create section and sub-sections in your articles.  In Markdown it look like this:
+These next three settings make your articles look amazing! Slightly jumping ahead here. Your articles are written in Markdown. You can use markdown headings to create section and sub-sections in your articles. In Markdown it look like this:
 
 ```markdown
 # This is a main heading (H1)
 ## This is a sub-heading (H2)
 ### This is a sub-sub-heading (H3)
 ```
-Blowfish can automatically generate a table of contents for your article based on these headings, you have to enable by setting `showTableOfContents = true` in the `[article]` section of your params.toml file. You can take this to next level of awesome by enabling `highlightCurrentMenuArea = true` and `smartTOC = true`. This moves the table of contents into a side panel and highlights the current section on the screen as you scroll through the article. It looks really professional and makes it easy for readers to navigate your content.
+Blowfish will automatically generate a table of contents for your article based on these headings, you have to enable showing it by setting `showTableOfContents = true` in the `[article]` section of your params.toml file.<br><br>
+You can take this to next level of awesome by enabling `highlightCurrentMenuArea = true` and `smartTOC = true`. This moves the table of contents into a side panel and highlights the current section on the screen as you scroll through the article. It looks really professional and makes it easy for readers to navigate your content.
 
 #### Home page settings
 
-The `[homepage]` section is where you configure how the home page will appear.  The most impactful setting here is `layout`.  Blowfish has serveral built in layout options. The default is `profile` but you can choose `page`, `hero`, `card`, `background` or `custom` and create your own html and css to get exactly what you want. Experiment with these options to what suits your site best.
+The `[homepage]` section is where you configure how the home page will appear.<br><br>
+The most impactful setting here is `layout`. Blowfish has serveral built in layout options. The default is `profile` but you can choose `page`, `hero`, `card`, `background` or `custom` and create your own html and css to get exactly what you want. Experiment with these options to what suits your site best.
 
 You can also control recents and if you want to show thumbnail card pictures for recent posts. More on that later.
 
 #### Article settings.
 
-This section allows you to configure a default style for your articles. You can control things like showing the creation date, last date updated, author name, reading time and word count.  These can all be overridden on a per article basis by setting front matter in your markdown files. I'll cover that later.
+This section allows you to configure a default style for your articles.<br><br>
+Enabling control for features like showing the creation date, last date updated, author name, reading time and word count. These can all be over-ridden on a per article basis by setting front matter in your markdown files. I'll cover that later.
 
 ## Testing your site locally
 
-With the basic configuration complete you can now test your site locally.  Hugo has a built-in server that you can use to preview your site.  In your terminal window run the following command:
+With the basic configuration complete you can now test your site locally. Hugo has a built-in server that you can use to preview your site.<br><br>
+In your terminal window run the following command:
 
 ```powershell
 hugo server --disableFastRender --noHTTPCache
@@ -283,7 +302,329 @@ Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
 ```
 
-Open your web browser and navigate to `http://localhost:1313/` to see your site in action.  You can make changes to your site files and the server will automatically reload the site to reflect your changes.
+Open your web browser and navigate to `http://localhost:1313/` to see your site in action. You can make changes to your site files and the server will automatically reload the site to reflect your changes.
 
 ## Creating and managing content
+
+I mentioned previously the menu structure should reflect the structure of your content. Earlier I created a menu with Home, Posts, Projects and About Me links.<br><br>
+To make these links work you need to create the relevant folder structure in the `content` folder of your project.
+
+We don't need to worry about the Home link as Hugo will handle that for us. Posts and Projects are sections so we need to create a folder for each section. About Me is a page link so create a markdown file called `about.md`.<br><br>
+Create them now so that your content folder looks like this:
+
+```
+content
+├── posts
+├── projects
+└── about.md
+```
+Open `about.md` and add some content to it. Doesn't matter what for now as we're going to b recreating this page soon.<br><br>
+Once done start the local server again with `hugo server --disableFastRender --noHTTPCache` and navigate to `http://localhost:1313/about/` to see your about page. All being well you should see your about page with the content you just added.
+
+So, creating content is as simple as creating files for pages and folders for sections. However there is a better way to do this using Hugo's built-in commands, which will lead us into a discussion on archetypes and front matter.
+
+Stop the local server by pressing Ctrl+C in the terminal window, delete the `about.md` file and make sure your terminal is in the root of your project folder. Run the following command:
+
+```powershell
+hugo new content about.md
+```
+You should see the `about.md` file has been recreated in the content folder.<br><br>
+Open the file and you will see it has some front matter already, but before we go into that try a few more commands:
+
+To create a new page in the posts section run:
+
+```powershell
+hugo new content posts/my-first-post.md
+```
+Now run the following command:
+
+```powershell
+hugo new content posts/my-second-post/index.md
+```
+You'll notice that the second command created a folder called `my-second-post` and created an `index.md` file inside it.<br><br>
+This is another structural element to create content in Hugo. Both methods are valid and will work fine. The advantage of using the `index.md` method is that you can add additional files to the folder if you need to, for example images or other assets related to that post.
+
+What about if we want to create a whole new section? Let's create a section called tutorials. Run the following command:
+
+```powershell
+hugo new content tutorials/my-first-tutorial/index.md
+```
+To get the new tutorials section available on the homepage we need to update the menu configuration we did earlier.<br><br>
+Open `menus.en.toml` and add the following code, remembering to update the weights of the other menu items so they appear in the order you want:
+
+```toml
+[[main]]
+  name = "Tutorials"
+  pageRef = "tutorials"
+  weight = 3
+```
+If you look in the new markdown files we've created you will see some text similar to this at the top of each file:
+```
++++
+date = '2026-02-02T11:21:41Z'
+draft = true
+title = 'About'
++++
+```
+
+This is called front matter and it is used by Hugo to manage your content. Front matter is created based on an archetype. Archetypes are templates that define the default front matter for different types of content.<br><br>
+By default Hugo uses the `archetypes/default.md` file to create new content. You can customize this file to add additional front matter fields that you want to use in your content.
+
+> [!NOTE]
+> If you start the local server now none of these pages will be visible as they are all marked as drafts. You can either set `draft = false` in the front matter of each file or start the server with the `--buildDrafts` flag to see draft content.
+
+If you open `archetypes/default.md` you will see the template front matter that Hugo will apply to each page you create using the CLI commands. It'll look something like this, bearing in mind that I have switched mine to YAML format:
+
+```yaml
+---
+date: "{{ .Date }}"
+draft: true
+title: "{{ replace .File.ContentBaseName "-" " " | title }}"
+---
+```
+
+As you can see it is using some code methods and functions to set the date and title field. There a lot more of these detailed in the Hugo documentation.
+
+### Front matter
+
+Front matter is incredibly powerful. You can use it control how individual pages and sections behave.<br><br>
+Overriding the default settings in params.toml on a page by page basis. Hugo has a comprehensive set of front matter options you can use listed in full [here](https://gohugo.io/content-management/front-matter/) and Blowfish has additional theme specific front matter options to complement these listed [here](https://blowfish.page/docs/front-matter/).<br><br>
+You can enter front matter in either TOML, YAML or JSON format. Persoanlly I'm more comfortable with YAML so I have updated my `archetypes\default.md` file to use YAML format.
+
+Ok. Here are a few examples of front matter options you can use in your content:
+
+Let's say you have a page that you don't want to include in search results, have a publication date or include a word count and reading time. You can add the following front matter to that page:
+
+```yaml
+showDate: false
+showReadingTime: false
+showWordCount: false
+draft: false
+excludeFromSearch: true
+```
+Another useful feature of front matter is the ability to set tags on your articles. In the front matter code enter
+
+```yaml
+tags: ["hugo", "blowfish"]
+```
+then in your `menus.en.toml` file set a menu item with the pageRef of `tags`.
+
+```toml
+[[main]]
+  name = "Tags"
+  pageRef = "tags"
+  weight = 6
+```
+
+The last front matter option I want to highlight leads us nicely into the next section I want to cover. Inserting images and thumbnails into your articles.
+
+### Images and thumbnails
+
+#### Thumbnails and hero images
+
+Blowfish has a really easy system for adding thumbnails to your articles. It requires you to use the directory structure method of creating content instead of a single markdown file in `\content\`.<br><br>
+If you've been following along go to `content\posts\my-second-post\` folder, paste in any image file you have and rename it to `featured.png`, if it's a png of course. So your folder will now look something like this:
+
+```
+content
+├── posts
+    └── my-second-post
+        ├── featured.png
+        └── index.md
+```
+The name of the file being `feature*` tells Blowfish this image is a featured image for this article. It will use it as a thumbnail on your site and include it as an [oEmbed](https://oembed.com/) card if you share your article link on social media.
+
+We can also use that image in the article itself using some front matter configuration. Open `index.md` and add the following front matter:
+
+```yaml
+showHero: true
+heroStyle: "background"
+```
+This will show the image as a background image at the top of your article and by default will blur out the image as you scroll down the page. It looks great!<br><br>
+You can disable the blur effect by adding `layoutBackgroundBlur: false` to the front matter also. Valid options for `heroStyle` are `basic`, `big`, `background` and `thumbAndBackground`. Have a play around with the local server running to see what suits your site the best.
+
+Great stuff, but what if you want to use the same thumbnail image for multiple articles without having to copy the image into each article folder?<br><br>
+This is where the `assets` folder comes into play.<br><br>
+Navigate from the project root folder into the assets folder and create a new folder named `images`, copy the `featured.png` image from `content/posts/my-second-post/` into the new `assets/images/` folder.<br>
+Rename it to something more generic like `shared.png`.<br><br>
+Now open `content/posts/my-first-post.md`. We didn't create a folder for this page so can't use the built-in featured image functionality. Instead we can use front matter to point to the shared image we just added. Add the following front matter to the top of the file:
+
+```yaml
+featuredImage: "images/shared.png"
+```
+Now if you spin up the local server again both posts should be showing the same thumbnail image.
+
+> [!NOTE]
+> The path to the image is relative to the `assets` folder. So you don't need to include `assets/` in the path.
+
+There is a second folder in the project called `static` where you can store things like images you want to include in your site.<br><br>
+The difference between `static` and `assets` is that files in the `static` folder are copied as-is to the generated site when you build it. Files in the `assets` folder are automatically optimised by Hugo when you build the site.<br><br>
+If you have images that are already optimised or for whatever reason, you don't want Hugo to process them use the `static` folder. For most cases using the `assets` folder is the best option.
+
+#### Inserting images in articles
+
+There are a couple of options for inserting images into your pages. The first is to use standard markdown syntax:
+
+```md
+![Alt Text](path/to/image.png "Optional Image Caption")
+```
+You can also use [Mardown Attributes](https://gohugo.io/content-management/markdown-attributes/) to do things like resize the image. This code will insert an image and reduce the width by 50%.
+
+```md
+![Alt Text](path/to/image.png "Optional Image Caption")
+{style="width:50%;"}
+```
+
+Just like with with feature images they can be located with the post in a content folder or in the `assets/images/` folder. They can also hosted elsewhere and linked using a URL.
+
+```md
+![Wolverine](https://static0.polygonimages.com/wordpress/wp-content/uploads/2025/08/wolverine.jpg)
+```
+![Wolverine](https://static0.polygonimages.com/wordpress/wp-content/uploads/2025/08/wolverine.jpg)
+
+> [!WARNING]
+> Images accessed via an external URL are provided as-is. Hugo cannot optimise them automatically but you can resize them using query paramters, for example "?w=1600&h=900&fit=crop"
+
+The second option is to use Shortcodes. A quick discussion of Shortcodes is the next, and final content related section, but I'll show the `figure` shortcode here as it's relevant to this section.<br>
+
+Inserting an image using a `figure` shortcode looks like the example below:
+```md
+{{</* figure
+    src="path/to/image.png"
+    alt="Alt Text"
+    caption="Optional Image Caption"
+    */>}}
+```
+#### Shortcodes
+
+Hugo comes with a set of [default shortcodes](https://gohugo.io/content-management/shortcodes/) and Blowfish enhances this with some extra theme specific shortcodes adding more functionality. You can find the full list here: [here](https://blowfish.page/docs/shortcodes/).<br>
+
+There are some really useful shortcodes in the Blowfish theme.<br>
+You can link to a GitHub Card:
+
+```md
+{{</* github repo="paul-mccormack/howdoyoucloud.github.io" showThumbnail=true */>}}
+```
+{{< github repo="paul-mccormack/howdoyoucloud.github.io" showThumbnail=true >}}
+
+You can embed icons:
+```md
+{{</* icon "github" */>}}
+```
+{{< icon "github" >}}<br>
+```md
+{{</* icon "facebook" */>}}
+```
+{{< icon "facebook" >}}<br>
+```md
+{{</* icon "poo" */>}}
+```
+{{< icon "poo" >}}<br>
+
+The full list of available icons is [here](https://blowfish.page/samples/icons/).
+
+There is even a shortcode that will type text for you! 🤪
+
+```md
+{{</* typeit tag="h3" speed=50 breaklines=false loop=true */>}} "This is the TypeIt shortcode in action!" {{</* /typeit */>}}
+```
+
+{{< typeit tag=h3 speed=50 breaklines=false loop=true >}} "This is the TypeIt shortcode in action!" {{< /typeit >}}
+
+The final shortcode I want to show off will be very useful if you are a Youtuber! Blowfish has a shortcode that allows you to embed YouTube videos! 🤩
+
+```md
+{{</* youtube id="zdrzDBz_CW8" label="3D Flyover Tour Manchester City UK" */>}}
+```
+
+{{< youtubeLite id="zdrzDBz_CW8" label="3D Flyover Tour Manchester City UK" >}}
+
+### Site deployment and hosting on GitHub Pages
+
+At this stage you've probably got something you want to publish, even if it's just to get a view on how the process looks.<br><br>
+If you have a custom domain you want to use that's great, I'll explain how to do that but if you don't using the default github.io domain is a great zero cost option to get your site online.
+
+#### Enable GitHub Pages
+
+The first thing you need to do is enable GitHub Pages for your repo.<br><br>
+Go to your repo, click on the settings tab, then click on Pages in the left hand menu. Under "Build and Deployment" select "GitHub Actions" as the source.
+
+#### Create a GitHub Actions workflow
+
+Next we need to create a workflow to enable GitHub Actions to build and deploy the site.<br><br>
+In the root of your project folder create a new folder called `.github` and inside that create a another folder called `workflows`. Inside the workflows folder create a new file called `hugo.yaml`.<br><br>
+The name of the file doesn't matter but it's good practice to name it something relevant to what it does. Your folder structure should now look like this:
+
+```
+.github
+├── workflows
+    └── hugo.yaml
+```
+Paste the following code into the yaml file:
+
+{{< codeimporter url="https://raw.githubusercontent.com/paul-mccormack/howdoyoucloud.github.io/refs/heads/main/.github/workflows/hugo.yaml" type="yaml" >}}
+
+This workflow will run when you push changes to the main branch of the remote repository.
+
+You can also find a copy of this file in my repo for this site [here](https://github.com/paul-mccormack/howdoyoucloud.github.io/blob/main/.github/workflows/hugo.yaml)
+
+> [!TIP]
+> If you ever want to push some changes to GitHub but don't want to trigger the workflow you can add `[skip ci]` to your commit message and GitHub Actions will ignore that commit.
+
+#### Build and deploy the site
+
+We are now at the point where we can build and deploy the site.<br><br>
+If you have been comitting and pushing your changes to GitHub as you followed along, including adding the new workflow file without adding a [skip ci] tag you've probably already triggered the action and your site is now live!.<br><br>
+If not you've got two options to trigger the workflow:
+
+* You can make a small change to your site files and push that to main, or if you haven't pushed since the initial one just do it now.
+* You can trigger the workflow manually from the Actions tab in your GitHub repo. Click on the workflow you want to run and click the "Run workflow" button.
+
+Whichever option you choose do that now.<br><br>
+The workflow should only take a few minutes and you can monitor it from the Actions tab in your GitHub repo. When it completes you will see the URL on the "deploy" job in the workflow run summary.<br><br>
+Alternatively go to Settings then Pages in your repo and you will have a visit site button.  You can also get the default URL from this screen.
+
+#### Adding a Custom Domain
+
+If you have a custom domain you want to use set-up is fairly straightforward.<br><br>
+You will need to be able to create DNS records for your domain to verify ownership and point to the GitHub Pages hosted site. The exact steps for this will depend on your DNS provider but the process is generally like this:
+
+1. Prove ownership of the domain.  Go to your GitHub account settings and click on Pages in the left hand menu. You will be presented with the option to add a "Verified domain". This process involves GitHub providing you with a TXT record to add to your DNS zone. Once you have done that they will check it exists and you have successfully verfied you own the domain. There might be a bit of a delay in this process as DNS changes can take time to propagate.
+
+2. You now need to create some DNS records to point to the site on GitHub Pages.<br><br>
+Create the following A records and CNAME record in your DNS zone:
+```
+Type: A
+Name: @ (This should create a record at the domain apex)
+Value: 185.199.111.153
+
+Type: A
+Name: @ (This should create a record at the domain apex)
+Value: 	185.199.110.153
+
+Type: A
+Name: @ (This should create a record at the domain apex)
+Value: 185.199.109.153
+
+Type: A
+Name: @ (This should create a record at the domain apex)
+Value: 	185.199.108.153
+
+Type: CNAME
+Name: www
+Value: <your-repo-name>.github.io (For the example in this guide it would be mynewsite.github.io)
+```
+3. The last step is to add the custom domain to your GitHub Pages settings. Go back to Settings tab in your repo and then to the Pages menu. Under "Custom domain" enter your domain name and click "Save". GitHub will check the DNS records are all set-up correctly and all being well You should see a green tick with a message saying "DNS check successful". Make sure you also tick the "Enforce HTTPS" box. GitHub will provide you with a free managed SSL certificate. With that part complete the site is now live on your custom domain!<br>
+
+**Go and check it works!**  😀
+
+### Wrapping up
+
+That was a long one but hopefully you now have an understanding of how Hugo with the Blowfish theme allow you to create a really good looking static web site with really not much work at all.<br><br>
+I love how you can create content in Markdown and Hugo takes care of all the HTML and CSS for you. The Blowfish theme has an outstanding set of features and configuration options!<br>
+
+I've got a couple of pages set-up on the site to use as cheatsheets for both Hugo and Blowfish. As I discover more useful features and just generally get more comfortable working with these tools I'll post it up those pages.  Click the links below to see them:
+
+[Hugo Cheatsheet](https://howdoyou.cloud/hugo-and-blowfish/hugo/)<br>
+[Blowfish Cheatsheet](https://howdoyou.cloud/hugo-and-blowfish/blowfish/)
 
