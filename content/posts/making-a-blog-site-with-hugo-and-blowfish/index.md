@@ -483,7 +483,7 @@ Just like with with feature images they can be located with the post in a conten
 ![Wolverine](https://static0.polygonimages.com/wordpress/wp-content/uploads/2025/08/wolverine.jpg)
 
 > [!WARNING]
-> Images accessed via an external URL are provided as-is. Hugo cannot optimise them automatically but you can resize them using query paramters, for example "?w=1600&h=900&fit=crop"
+> Images accessed via an external URL are provided as-is. Hugo cannot optimise them automatically but you can resize them using query parameters, for example "?w=1600&h=900&fit=crop"
 
 The second option is to use Shortcodes. A quick discussion of Shortcodes is the next, and final content related section, but I'll show the `figure` shortcode here as it's relevant to this section.<br>
 
