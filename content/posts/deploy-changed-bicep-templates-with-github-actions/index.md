@@ -8,7 +8,11 @@ heroStyle: "background"
 ---
 
 ## Introduction 
-This project is to develop a method for checking if Bicep templates in the repo have changed on the latest commit.  If they have add them to the deployment.  If they haven't skip them.  The ultimate goal is to reduce the run time for a deployment on a project that contains multiple sets of templates and parameter files that are unlikley to be changed and redeployed together after the initial deployment.
+This post goes into detail of method I used to for check if Bicep templates in the repo have changed on the latest commit.  If they have add them to the deployment.  If they haven't skip them.  The ultimate goal is to reduce the run time for a deployment on a project that contains multiple sets of templates and parameter files that are unlikley to be changed and redeployed together after the initial deployment.
+
+> [!TIP]+ Companion GitHub Repository
+> The code for the pipeline configuration and the test templates and parameter files can be found in this [repository](https://github.com/paul-mccormack/deploy-changed-bicep-templates)
+{icon="github"}
 
 ## The problem I'm trying to solve
 
