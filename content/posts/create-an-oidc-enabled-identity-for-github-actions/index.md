@@ -7,7 +7,7 @@ showHero: true
 heroStyle: "background"
 ---
 
-# Introduction
+## Introduction
 
 This PowerShell script was written to create an Entra service principal with a federated credential and role assignment at a scope selected during execution, for use with GitHub Actions performing deployments to Azure.
 
